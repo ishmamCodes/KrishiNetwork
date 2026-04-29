@@ -11,7 +11,7 @@ const ChatGPT = () => {
 
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:4000/api/ai/ask', { question });
+      const res = await axios.post(`${API_BASE_URL}/api/ai/ask`, { question });
       setAnswer(res.data.answer);
     } catch (error) {
       setAnswer('Error fetching answer.');

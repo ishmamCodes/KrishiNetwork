@@ -10,19 +10,19 @@ const Messenger = () => {
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
   const handleSearch = async () => {
-    const res = await axios.get(`http://localhost:4000/users/search?query=${query}`);
+    const res = await axios.get(`${API_BASE_URL}/users/search?query=${query}`);
     setUsers(res.data);
   };
 
   const selectUser = async (user) => {
     setSelectedUser(user);
-    const res = await axios.get(`http://localhost:4000/api/messages/${loggedInUser._id}/${user._id}`);
+    const res = await axios.get(`${API_BASE_URL}/api/messages/${loggedInUser._id}/${user._id}`);
     setMessages(res.data);
   };
 
   const sendMessage = async () => {
     if (!text) return;
-    const res = await axios.post(`http://localhost:4000/api/messages`, {
+    const res = await axios.post(`${API_BASE_URL}/api/messages`, {
       senderId: loggedInUser._id,
       receiverId: selectedUser._id,
       text

@@ -62,7 +62,7 @@ const CartItems = () => {
     try {
       setIsPlacingOrder(true);
 
-      const res = await fetch("http://localhost:4000/orders/cod", {
+      const res = await fetch(`${API_BASE_URL}/orders/cod`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

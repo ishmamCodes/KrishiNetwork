@@ -21,7 +21,7 @@ const Messenger = () => {
   const handleSearch = async () => {
     if (!searchQuery) return;
     try {
-      const res = await axios.get(`http://localhost:4000/users/search?query=${searchQuery}`);
+      const res = await axios.get(`${API_BASE_URL}/users/search?query=${searchQuery}`);
       setSearchResults(res.data);
     } catch (error) {
       console.error("Search error:", error);
@@ -30,7 +30,7 @@ const Messenger = () => {
 
   const fetchMessages = async () => {
     try {
-      const res = await axios.get(`http://localhost:4000/api/messages/${loggedInUser.phone}/${selectedUser.phone}`);
+      const res = await axios.get(`${API_BASE_URL}/api/messages/${loggedInUser.phone}/${selectedUser.phone}`);
       setMessages(res.data);
     } catch (error) {
       console.error("Fetch chat error:", error);
@@ -47,7 +47,7 @@ const Messenger = () => {
         text
       };
 
-      await axios.post('http://localhost:4000/api/messages', payload);
+      await axios.post(`${API_BASE_URL}/api/messages`, payload);
       setText('');
       fetchMessages();
     } catch (error) {

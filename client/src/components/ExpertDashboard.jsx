@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FiEdit2, FiLogOut, FiChevronLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE_URL = "http://localhost:4000";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
 
 const ExpertDashboard = () => {
   const navigate = useNavigate();

@@ -15,7 +15,7 @@ const AddProduct = () => {
   const [listError, setListError] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:4000/products/all')
+    fetch(`${API_BASE_URL}/products/all`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to load products');
         return res.json();
@@ -54,7 +54,7 @@ const AddProduct = () => {
     formData.append("file", document.getElementById("fileInput").files[0]); // send file
   
     try {
-      const response = await fetch('http://localhost:4000/products/add', {
+      const response = await fetch(`${API_BASE_URL}/products/add`, {
         method: 'POST',
         body: formData, // Don't set Content-Type manually
       });
@@ -74,7 +74,7 @@ const AddProduct = () => {
       document.getElementById('fileInput').value = '';
   
       // Refresh products
-      const refreshResponse = await fetch('http://localhost:4000/products/all');
+      const refreshResponse = await fetch(`${API_BASE_URL}/products/all`);
       const refreshedProducts = await refreshResponse.json();
       setProducts(refreshedProducts);
   

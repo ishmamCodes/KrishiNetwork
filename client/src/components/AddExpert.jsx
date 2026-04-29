@@ -35,7 +35,7 @@ const AddExpert = () => {
     setLoading(true);
     
     try {
-      const response = await fetch('http://localhost:4000/sellers/add-expert', {
+      const response = await fetch(`${API_BASE_URL}/sellers/add-expert`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

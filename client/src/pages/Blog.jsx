@@ -13,7 +13,7 @@ const Blog = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get('http://localhost:4000/api/blogs');
+      const res = await axios.get(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/api/blogs`);
       setBlogs(res.data);
     } catch (error) {
       console.error("Error fetching blogs:", error);
@@ -32,7 +32,7 @@ const Blog = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:4000/api/blogs', {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/api/blogs`, {
         ...newBlog,
         author: loggedInUser.name,
       });
@@ -47,7 +47,7 @@ const Blog = () => {
 
   const handleLike = async (id) => {
     try {
-      await axios.post(`http://localhost:4000/api/blogs/${id}/like`);
+      await axios.post(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/api/blogs/${id}/like`);
       fetchBlogs();
     } catch (error) {
       console.error("Error liking blog:", error);
@@ -59,7 +59,7 @@ const Blog = () => {
     if (!commentText[id]) return;
 
     try {
-      await axios.post(`http://localhost:4000/api/blogs/${id}/comment`, {
+      await axios.post(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/api/blogs/${id}/comment`, {
         user: loggedInUser.name,
         text: commentText[id],
       });

@@ -8,7 +8,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res  = await fetch('http://localhost:4000/products/all');
+        const res  = await fetch(`${API_BASE_URL}/products/all`);
         if (!res.ok) throw new Error('Failed to fetch products');
         const data = await res.json();
         setProducts(data);
@@ -23,7 +23,7 @@ const ProductList = () => {
 
   const handleRemove = async (id) => {
     try {
-      const res = await fetch('http://localhost:4000/products/remove', {
+      const res = await fetch(`${API_BASE_URL}/products/remove`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id }),

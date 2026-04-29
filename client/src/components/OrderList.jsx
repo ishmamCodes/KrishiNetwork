@@ -8,7 +8,7 @@ const OrderList = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://localhost:4000/orders/all');
+        const response = await fetch(`${API_BASE_URL}/orders/all`);
         if (!response.ok) throw new Error('Failed to fetch orders');
         const data = await response.json();
         console.log("Orders Data: ", data.orders); // helpful for debugging
@@ -25,7 +25,7 @@ const OrderList = () => {
 
   const handleMarkAsDelivered = async (orderId) => {
     try {
-      const res = await fetch(`http://localhost:4000/orders/${orderId}/status`, {
+      const res = await fetch(`${API_BASE_URL}/orders/${orderId}/status`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: 'delivered' }),
