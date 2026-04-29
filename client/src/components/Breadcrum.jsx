@@ -1,5 +1,5 @@
 import React from 'react';
-import arrow_icon from '../Assets/breadcrum_arrow.png';
+import arrow_icon from '../assets/breadcrum_arrow.png';
 
 const Breadcrum = ({ product }) => {
   // Safely handle missing product or category
