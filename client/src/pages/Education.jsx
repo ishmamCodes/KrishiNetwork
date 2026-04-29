@@ -8,7 +8,7 @@ const Education = () => {
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
   const fetchVideos = async () => {
-    const res = await axios.get(`${API_BASE_URL}/api/education`);
+    const res = await axios.get(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/api/education`);
     setVideos(res.data);
   };
 
@@ -22,7 +22,7 @@ const Education = () => {
     };
   
     try {
-      await axios.post(`${API_BASE_URL}/api/education`, payload);
+      await axios.post(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/api/education`, payload);
       setNewVideo({ title: '', youtubeLink: '' });
       fetchVideos();
     } catch (error) {

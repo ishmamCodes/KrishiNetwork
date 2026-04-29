@@ -8,7 +8,7 @@ const UserSearch = ({ onSelect }) => {
 
   const search = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/users/search?query=${query}`);
+      const res = await axios.get(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/users/search?query=${query}`);
       setResults(res.data);
     } catch (err) {
       console.error('Search failed:', err);

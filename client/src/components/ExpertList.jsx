@@ -8,7 +8,7 @@ const ExpertList = () => {
   const fetchExperts = async () => {
     try {
       setLoading(true);
-      const res = await fetch(`${API_BASE_URL}/expert`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/expert`);
       if (!res.ok) {
         throw new Error('Error fetching experts');
       }
@@ -29,7 +29,7 @@ const ExpertList = () => {
     ));
 
     try {
-      const res = await fetch(`${API_BASE_URL}/expert/toggle/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/expert/toggle/${id}`, {
         method: 'PUT',
       });
       if (!res.ok) {

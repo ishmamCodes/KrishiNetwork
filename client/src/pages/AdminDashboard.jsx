@@ -22,7 +22,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     if (activeTab !== 'productList') return;
     setLoading(true);
-    fetch(`${API_BASE_URL}/products/all`)
+    fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/products/all`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch products');
         return res.json();
@@ -38,7 +38,7 @@ const AdminDashboard = () => {
   // Remove a product
   const handleRemove = async (id) => {
     try {
-      const res = await fetch(`${API_BASE_URL}/products/remove`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/products/remove`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id }),
@@ -65,7 +65,7 @@ const AdminDashboard = () => {
     setSavingId(id);
     try {
       const res = await fetch(
-        `${API_BASE_URL}/products/${id}/description`,
+        `${import.meta.env.VITE_API_URL || "http://localhost:4000"}/products/${id}/description`,
         {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },

@@ -28,7 +28,7 @@ export const ShopContextProvider = ({ children }) => {
 
   // Fetch all products from the backend when the component mounts
   useEffect(() => {
-    fetch(`${API_BASE_URL}/products/all`)
+    fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/products/all`)
       .then((response) => response.json())
       .then((data) => setAllProducts(data))
       .catch((error) => console.error("Failed to fetch products:", error));

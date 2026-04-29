@@ -62,7 +62,7 @@ const CartItems = () => {
     try {
       setIsPlacingOrder(true);
 
-      const res = await fetch(`${API_BASE_URL}/orders/cod`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/orders/cod`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

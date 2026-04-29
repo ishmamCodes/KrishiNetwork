@@ -17,7 +17,7 @@ const DescriptionBox = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/products/${productId}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/products/${productId}`);
         const data = await res.json();
         if (!data.success) throw new Error(data.message);
         setDescription(data.product.description || 'No description available.');
@@ -36,7 +36,7 @@ const DescriptionBox = () => {
       setReviewLoading(true);
       setReviewError('');
       try {
-        const res = await fetch(`${API_BASE_URL}/products/${productId}/reviews`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/products/${productId}/reviews`);
         const data = await res.json();
         if (!data.success) throw new Error(data.message);
         setReviews(data.reviews || []);
@@ -57,7 +57,7 @@ const DescriptionBox = () => {
     setReviewLoading(true);
     setReviewError('');
     try {
-      const res = await fetch(`${API_BASE_URL}/products/${productId}/review`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/products/${productId}/review`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
