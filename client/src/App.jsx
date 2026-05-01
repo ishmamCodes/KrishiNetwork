@@ -19,7 +19,7 @@ import Education from './pages/Education';
 import ChatGPT from './components/ChatGPT';
 import Messenger from './components/Messenger';
 import Wishlist from './pages/Wishlist';
-
+import DiseaseDetection from './pages/DiseaseDetection';
 
 
 function App() {
@@ -56,6 +56,7 @@ function App() {
           <Route path="/blog" element={<Blog />} /> {/* Add the Blog route */}
           <Route path="/ai" element={<ChatGPT />} />
           <Route path="/messenger" element={<Messenger />} />;
+          <Route path="/disease-detection" element={<DiseaseDetection />} />
 
           {/* Wishlist Route */}
           <Route path="/wishlist" element={<Wishlist />} />

@@ -28,6 +28,7 @@ const Navbar = () => {
     'Education',
     'AI',
     'Messenger',
+    'DiseaseAI',
   ];
 
   useEffect(() => {
@@ -64,7 +65,7 @@ const Navbar = () => {
       <ul className="flex gap-5 text-sm font-bold text-green-600 md:text-base flex-wrap">
         {menuItems.map((item) => {
           const path = item.toLowerCase();
-          const linkPath = path === 'home' ? '/' : `/${path}`;
+          const linkPath = path === 'home' ? '/' : path === 'disease' ? '/disease-detection' : `/${path}`;
           return (
             <li key={item}>
               <Link
