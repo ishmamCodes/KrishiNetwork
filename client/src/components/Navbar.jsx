@@ -28,7 +28,7 @@ const Navbar = () => {
     'Education',
     'AI',
     'Messenger',
-    'DiseaseAI',
+    'Disease',
   ];
 
   useEffect(() => {
