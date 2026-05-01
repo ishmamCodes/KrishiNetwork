@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const ML_API_URL = import.meta.env.VITE_ML_API_URL || "http://localhost:8000";
+const ML_API_URL = "https://krishinetwork-ml-api.onrender.com";
 
 const severityColor = {
   None: "bg-green-100 text-green-800",
